@@ -160,7 +160,8 @@
         databaseURL: 'https://mfteam-default-rtdb.firebaseio.com/'
     };
     firebase.initializeApp(firebaseConfig);
-    const db = firebase.database().ref('live_graphics');
+    const db = firebase.database().ref('live_graphics/tatami');
+
 
     // Автоматическая загрузка текущих данных при открытии пульта
     db.once('value').then((snapshot) => {
