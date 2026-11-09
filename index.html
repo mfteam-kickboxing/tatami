@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Титры Бокс / Кикбоксинг LIVE</title>
+    <title>Титры ТАТАМИ LIVE</title>
     <style>
         html, body {
             margin: 0; padding: 0; background: transparent;
@@ -119,7 +119,7 @@
                 <span id="red">БОЕЦ КРАСНЫЙ</span>
                 <img src="" class="club-logo" id="red-logo" style="display:none;">
             </div>
-            <div class="pair-num" id="pair">ПАРА №1</div>
+            <div class="pair-num" id="pair">ТАТАМИ</div>
             <div class="badge blue-corner">
                 <img src="" class="club-logo" id="blue-logo" style="display:none;">
                 <span id="blue">БОЕЦ СИНИЙ</span>
@@ -131,12 +131,13 @@
     </div>
 
     <script>
-        // ИСПРАВЛЕНО: Синхронизировано с базой данных пульта управления
         const firebaseConfig = {
             databaseURL: 'https://mfteam-default-rtdb.firebaseio.com/'
         };
         firebase.initializeApp(firebaseConfig);
-        const db = firebase.database().ref('live_graphics');
+        
+        // СВЯЗКА С FIREBASE: Теперь этот код смотрит строго в ветку 'tatami'
+        const db = firebase.database().ref('live_graphics/tatami');
 
         // Ловим изменения "на лету" — без перезагрузок страницы
         db.on('value', (snapshot) => {
